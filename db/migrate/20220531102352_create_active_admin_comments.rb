@@ -10,7 +10,7 @@ class CreateActiveAdminComments < ActiveRecord::Migration[7.0]
     add_index :active_admin_comments, [:namespace]
   end
 
-  def self.down
-    drop_table :active_admin_comments
-  end
+  # def self.down
+  #   drop_table :active_admin_comments
+  # end
 end

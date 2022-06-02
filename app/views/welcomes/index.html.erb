@@ -1,0 +1,7 @@
+<h1>Welcome To Dashbord</h1>
+
+ <%= button_to "log out", destroy_user_session_path, method: :delete %>
+ <br />
+
+
+  <%= link_to "QR CODE", qr_code_generator_path, class: "btn btn-success" %>

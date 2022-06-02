@@ -32,7 +32,7 @@ gem 'activeadmin'
 gem "rolify"
 gem "bootstrap"
 gem "pg"
-gem "rqrcode"
+gem 'rqrcode'
 gem "pry"
 gem "pundit"
 # gem 'draper'

@@ -1,18 +1,34 @@
-# frozen_string_literal: true
+class StudentController < ApplicationController
 
-class User::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  def new
+    @student = Student.new
+  end
 
-  # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def index
+    @student = Student.all
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @student = Student.new(student_params)
+    #binding.pry
+      if @student.save
+        # UserMailer.with(user: @user).welcome_email.deliver_later
+
+        # super
+        # UserMailer.welcome(resource).deliver unless resource.invalid?
+        redirect_to @student
+      else
+        render :new, status: :unprocesseable_entity
+    end
+  end
+
+  # DELETE /resource
+  def destroy
+  @student = Student.find(params[:id])
+    @student.destroy
+    redirect_to admin_students_path
+  end
 
   # GET /resource/edit
   # def edit
@@ -24,10 +40,6 @@ class User::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # DELETE /resource
-  # def destroy
-  #   super
-  # end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -59,4 +71,11 @@ class User::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private 
+   def user_params
+    params.require(:user).permit(:first_name, :last_name,:father_name, :mother_name
+    , :date_of_birth, :gender, :city,:phone_no)
+  end
+
 end
