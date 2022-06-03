@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         has_many :sections
 
-       has_many :students
-
+      validates :first_name,:email, presence: true
+     
+       # has_many :section
+       # has_many :student, :through => :section
 end

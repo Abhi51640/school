@@ -1,20 +1,19 @@
-class StudentController < ApplicationController
+class StudentsController < ApplicationController
 
   def new
     @student = Student.new
   end
 
   def index
-    @student = Student.all
+    
   end
 
   # POST /resource
   def create
+    
     @student = Student.new(student_params)
-    #binding.pry
       if @student.save
         # UserMailer.with(user: @user).welcome_email.deliver_later
-
         # super
         # UserMailer.welcome(resource).deliver unless resource.invalid?
         redirect_to @student
@@ -31,14 +30,18 @@ class StudentController < ApplicationController
   end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    @student = Student.find(params[:id])
+      @student.edit
+      redirect_to admin_students_path
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    @student = Student.find(params[:id])
+      @student.update
+      redirect_to admin_students_path
+  end
 
 
   # GET /resource/cancel
@@ -73,9 +76,8 @@ class StudentController < ApplicationController
   # end
 
   private 
-   def user_params
-    params.require(:user).permit(:first_name, :last_name,:father_name, :mother_name
+   def student_params
+    params.require(:student).permit(:first_name, :last_name,:father_name, :mother_name
     , :date_of_birth, :gender, :city,:phone_no)
   end
-
 end

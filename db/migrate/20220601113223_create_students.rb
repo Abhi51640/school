@@ -7,8 +7,8 @@ class CreateStudents < ActiveRecord::Migration[7.0]
       t.string :father_name
       t.string :mother_name
       t.string :gender
-      t.datetime :date_of_birth
       t.string :phone_no
+      t.datetime :date_of_birth
     end
   end
 end

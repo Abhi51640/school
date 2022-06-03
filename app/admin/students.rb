@@ -1,5 +1,16 @@
 ActiveAdmin.register Student do
 
+    permit_params :first_name,:last_name,:father_name,:mother_name,:gender,:date_of_birth,:phone_no
+
+    filter  :first_name
+    filter  :last_name
+    filter  :father_name
+    filter  :mother_name
+    filter  :gender
+    filter  :date_of_birth
+    filter  :phone_no
+
+
   index do
     selectable_column
     id_column
@@ -12,14 +23,7 @@ ActiveAdmin.register Student do
     column :phone_no
     actions
   end
-
-    filter  :first_name
-    filter  :last_name
-    filter  :father_name
-    filter  :mother_name
-    filter  :gender
-    filter  :date_of_birth
-    filter  :phone_no
+  
 
   form do |f|
     f.inputs do

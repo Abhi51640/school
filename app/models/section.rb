@@ -1,6 +1,4 @@
 class Section < ApplicationRecord
-   
-     # belongs_to :user
-       has_many :student
+  belongs_to :student
 end
  

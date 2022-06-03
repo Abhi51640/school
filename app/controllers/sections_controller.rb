@@ -4,7 +4,7 @@ class SectionsController < ApplicationController
 	end
 
 	def index
-	  @section = Section.all
+		
 	end
 
 	# POST /resource
