@@ -4,7 +4,8 @@ class SectionsController < ApplicationController
 	end
 
 	def index
-		
+   
+   
 	end
 
 	# POST /resource
@@ -69,7 +70,7 @@ class SectionsController < ApplicationController
 
 	private 
 	 def user_params
-	  params.require(:section).permit(:standard, :section_name)
+	  params.require(:section).permit(:standard, :section_name,:student)
 	end
 
 

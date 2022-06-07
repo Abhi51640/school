@@ -7,6 +7,5 @@ class User < ApplicationRecord
 
       validates :first_name,:email, presence: true
      
-       # has_many :section
-       # has_many :student, :through => :section
+       
 end

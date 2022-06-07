@@ -33,6 +33,7 @@ gem "rolify"
 gem "bootstrap"
 gem "pg"
 gem 'rqrcode'
+gem "carrierwave"
 gem "pry"
 gem "pundit"
 # gem 'draper'

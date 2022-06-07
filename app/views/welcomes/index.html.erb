@@ -1,37 +1,25 @@
 <h1>Welcome To Dashbord</h1>
-
- <%= button_to "log out", destroy_user_session_path, method: :delete %>
-
- <h3>Class List</h3>
-
- <%= link_to "QR CODE", qr_code_generator_path , class:"btn btn-success" %>
- 
-
-  <hr/>
- 
-  <%= link_to 'Class', admin_sections_path, method: :get , class:'btn btn-success btn-block'  %>
-        <br />
+  <%= button_to "log out", destroy_user_session_path, method: :delete %>
+  <%= link_to "QR CODE", qr_code_generator_path , class:"btn btn-success" %>
+<table class="table table-striped">
+  <thead>
     <tr>
-   <%# @sections.each do |section| %>
-        <td><%#= section.standard%></td>
-        <td><%#= section.section_name %></td>
-       </tr>
-  <%# end %>     
-<hr/>
+      <th>Standard</th>
+      <th>Section</th>
+      <th>Show</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sections.each do |section| %>
+      <tr>
+        <td><%= section.standard%></td>   
+        <td><%= section.section %></td>
+        <td><%= link_to "Show", checkins_path , method: :get %></td>
+        <br>
+      </tr>
+    <% end %>     
+  </tbody>
+</table>
 
-<%= link_to 'Student', admin_students_path, method: :get , class:'btn btn-success btn-block'  %>
 
-  <tr>
-   <div class="student-box ">
-  <!-- <h4>Students List</h4> -->
-  <%# @students.each do |student| %>
-        <%# binding.pry %>
-        <%#= student.student_id %><br>
-        <td><%#= student.first_name %></td>
-        <td><%#= student.father_name %></td>
-        <td><%#= student.mother_name %></td>
-        <td><%#= student.date_of_birth %></td>
-        <td><%#= student.phone_no %></td>
-  <%# end %> 
-  </tr>    
-</div>
+

@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <thead>
+   <tr>
+     <th>First Name</th>
+     <th>last Name</th>
+     <th>Father Name</th>
+     <th>Mother Name</th>
+     <th>Date Of Birth</th>
+     <th>Phone No.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @checkin.each do |chcekin| %>
+      <tr>
+        <td><%= checkin.student.first_name %></td>
+        <td><%= checkin.student.last_name %></td>
+        <td><%= checkin.student.father_name %></td>
+        <td><%= checkin.student.mother_name %></td>
+        <td><%= checkin.student.date_of_birth %></td>
+        <td><%= checkin.student.phone_no %></td>
+        <tr />
+    <% end %>    
+  </tbody>
+</table>
+
