@@ -6,11 +6,15 @@ ActiveAdmin.register Student do
     filter :last_name
     filter :father_name
     filter :mother_name
-    # filter :standard
-    # filter :section
     filter :gender
     filter :date_of_birth
     filter :phone_no
+
+
+      # filter :student_id,
+      #              as: :search_select_filter,
+      #              fields: %i[first_name last_name],
+      #              display_name: :full_name
 
   index do
     selectable_column
@@ -19,8 +23,6 @@ ActiveAdmin.register Student do
     column :last_name
     column :father_name
     column :mother_name
-    # column :standard
-    # column :section
     column :gender
     column :date_of_birth
     column :phone_no
@@ -33,8 +35,6 @@ ActiveAdmin.register Student do
       f.input :last_name
       f.input :father_name 
       f.input :mother_name
-      # f.input :standard
-      # f.input :section
       f.input :gender 
       f.input :date_of_birth
       f.input :phone_no
@@ -43,12 +43,12 @@ ActiveAdmin.register Student do
   end
 
   member_action :generate_qr, method: :put do
-    resource.generate_qr
-    # redirect_to resource_path, notice: "Locked!"
+    file_path = resource.generate_qr
+    send_file file_path 
   end
 
-  action_item :generate_qr,  only: [ :index ] do |resource|
-    # binding.pry
-    link_to "Generate QR", generate_qr_admin_student_path(id: Student.last.id)
+  action_item :generate_qr,  only: [ :show ] do
+     # binding.pry
+    link_to "Generate QR", generate_qr_admin_student_path(id: resource.id), method: :put
   end
 end
