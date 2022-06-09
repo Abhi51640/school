@@ -1,0 +1,23 @@
+<table class="table table-striped">
+  <thead>
+   <tr>
+     <th>Student Id</th>
+     <th>Section Id</th>
+   <!--   <th>Father Name</th>
+     <th>Mother Name</th>
+     <th>Date Of Birth</th>
+     <th>Phone No.</th> -->
+     
+    </tr>
+  </thead>
+  <tbody>
+    <% @checkin.each do |checkin| %>
+      <tr>
+        <td><%= checkin.student_id %></td>
+        <td><%= checkin.section_id %></td>
+
+       <tr />
+    <% end %>    
+  </tbody>
+</table>
+
