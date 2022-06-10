@@ -321,6 +321,7 @@ DEPENDENCIES
   bootstrap
   capybara
   carrierwave
+  chunky_png
   debug
   devise
   importmap-rails

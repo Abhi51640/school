@@ -1,21 +1,17 @@
 class Student < ApplicationRecord
+  include Rails.application.routes.url_helpers
 
   validates :first_name, :father_name, :phone_no, presence: true
   
-  belongs_to :section
-  belongs_to :checkin
+  has_many :checkins
   
-  def generate_qr
+  
+  def generate_qr(host = "")
     # write the logic for qr generation
-    self.id
-    self.first_name
-    self.last_name
-    # qrcode = RQRCode::QRCode.new(params[:content].to_s)
-    # qrcode = RQRCodeCore::QRCode.new("http://localhost:3000/checkin")
-      qrcode = RQRCode::QRCode.new([{ data: id.to_s, mode: :byte_8bit }, { data: first_name, mode: :byte_8bit },
-       { data: last_name, mode: :byte_8bit}])
+   # binding.pry
+    qrcode = RQRCode::QRCode.new(host + checkins_path(student_id: self.id))
 
-    # NOTE: showing with default options specified explicitly
+      # NOTE: showing with default options specified explicitly
     png = qrcode.as_png(
       bit_depth: 1,
       border_modules: 4,
@@ -32,6 +28,7 @@ class Student < ApplicationRecord
     IO.binwrite(file_path, png.to_s)
     return file_path
   end
+  
   def full_name
       [first_name, last_name].compact.join(' ')
   end

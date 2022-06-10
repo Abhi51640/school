@@ -8,11 +8,11 @@ class CreateStudents < ActiveRecord::Migration[7.0]
       t.string :last_name
       t.string :father_name
       t.string :mother_name
-      t.string :section
       t.string :gender
       t.string :phone_no
-      t.datetime :date_of_birth
       t.string :active_admin_comments
+      t.datetime :date_of_birth
+      t.references :section
     end  
   end
 end

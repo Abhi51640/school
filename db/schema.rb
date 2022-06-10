@@ -71,8 +71,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_130825) do
   create_table "checkins", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "student"
-    t.string "section"
+    t.bigint "student_id"
+    t.bigint "section_id"
+    t.index ["section_id"], name: "index_checkins_on_section_id"
+    t.index ["student_id"], name: "index_checkins_on_student_id"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -80,7 +82,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_130825) do
     t.datetime "updated_at", null: false
     t.string "section"
     t.string "standard"
-    t.string "student"
+    t.bigint "student_id"
+    t.index ["student_id"], name: "index_sections_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -90,11 +93,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_130825) do
     t.string "last_name"
     t.string "father_name"
     t.string "mother_name"
-    t.string "section"
     t.string "gender"
     t.string "phone_no"
-    t.datetime "date_of_birth"
     t.string "active_admin_comments"
+    t.datetime "date_of_birth"
+    t.bigint "section_id"
+    t.index ["section_id"], name: "index_students_on_section_id"
   end
 
   create_table "users", force: :cascade do |t|

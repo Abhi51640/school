@@ -5,7 +5,7 @@ class CreateSections < ActiveRecord::Migration[7.0]
       t.timestamps
       t.string :section
       t.string :standard
-      t.string :student
+      t.references :student
     end
   end
 end

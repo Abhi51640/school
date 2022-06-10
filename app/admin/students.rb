@@ -11,11 +11,6 @@ ActiveAdmin.register Student do
     filter :phone_no
 
 
-      # filter :student_id,
-      #              as: :search_select_filter,
-      #              fields: %i[first_name last_name],
-      #              display_name: :full_name
-
   index do
     selectable_column
     id_column
@@ -43,7 +38,7 @@ ActiveAdmin.register Student do
   end
 
   member_action :generate_qr, method: :put do
-    file_path = resource.generate_qr
+    file_path = resource.generate_qr(request.host)
     send_file file_path 
   end
 
