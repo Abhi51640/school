@@ -4,12 +4,12 @@ class Student < ApplicationRecord
   validates :first_name, :father_name, :phone_no, presence: true
   
   has_many :checkins
-  
+  belongs_to :section
   
   def generate_qr(host = "")
     # write the logic for qr generation
    # binding.pry
-    qrcode = RQRCode::QRCode.new(host + checkins_path(student_id: self.id))
+    qrcode = RQRCode::QRCode.new(host + store_new_checkin_path(student_id: self.id))
 
       # NOTE: showing with default options specified explicitly
     png = qrcode.as_png(
@@ -28,7 +28,7 @@ class Student < ApplicationRecord
     IO.binwrite(file_path, png.to_s)
     return file_path
   end
-  
+  # binding.pry
   def full_name
       [first_name, last_name].compact.join(' ')
   end

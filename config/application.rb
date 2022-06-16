@@ -12,7 +12,7 @@ module School
     config.load_defaults 7.0
 
     #ngrok
-    config.hosts << "03f1-2401-4900-1c19-8c7a-d0be-6420-e787-c82.in.ngrok.io"
+    config.hosts << "9af4-2401-4900-1c18-2947-29f2-749b-f1a3-7fdf.in.ngrok.io"
     config.web_console.whiny_requests = false
 
     # Configuration for the application, engines, and railties goes here.

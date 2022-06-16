@@ -1,6 +1,6 @@
 ActiveAdmin.register Student do
 
-     permit_params :first_name,:last_name,:father_name,:mother_name,:gender,:date_of_birth,:phone_no
+     permit_params :first_name,:last_name,:father_name,:mother_name,:gender,:date_of_birth,:phone_no,:section_id
 
     filter :first_name
     filter :last_name
@@ -33,6 +33,7 @@ ActiveAdmin.register Student do
       f.input :gender 
       f.input :date_of_birth
       f.input :phone_no
+      f.input :section_id, :as => :select, :collection => Section.pluck(:section, :id)
     end
     f.actions
   end

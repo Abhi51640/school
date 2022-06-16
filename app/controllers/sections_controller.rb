@@ -4,14 +4,12 @@ class SectionsController < ApplicationController
 	end
 
 	def index
-   
-   
 	end
 
 	# POST /resource
 	def create
-	  @section = Section.new(user_params)
-	  #binding.pry
+	  @section = Section.new(section_params)
+	
 	    if @section.save
 	      redirect_to @section
 	    else
@@ -70,7 +68,7 @@ class SectionsController < ApplicationController
 
 	private 
 	 def user_params
-	  params.require(:section).permit(:standard, :section_name,:student)
+	  params.require(:section).permit(:standard, :section, :student_id)
 	end
 
 

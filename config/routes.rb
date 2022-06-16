@@ -2,17 +2,16 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
            :sessions => "users/sessions",
            :registrations => "users/registrations"}
-  devise_scope :user do
-      # root to: "devise/sessions#new"
-      # get 'sign_in', to: 'devise/sessions/new'
-  end
+
   # get 'devise/sessions/new'
-  root :to => "welcomes#index"
-  resources :welcomes 
+  # root :to => "welcomes#index"
+  # resources :welcomes 
   resources :students
   resources :sections
   resources :checkins
 
+  get 'store_new_checkin' , to: 'checkins#new_checkin'
+   
   controller :pages do
     get :qr_code_generator
     get :qr_code_download
