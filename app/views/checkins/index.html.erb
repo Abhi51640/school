@@ -3,18 +3,14 @@
    <tr>
      <th>Student Name</th>
      <th>Standard</th>
-   <!--   <th>Father Name</th>
-     <th>Mother Name</th>
-     <th>Date Of Birth</th>
-     <th>Phone No.</th> -->
      <br />
     </tr>
   </thead>
   <tbody>
-    <% @checkin.each do |checkin| %>
+    <% @checkins.each do |checkin| %>
       <tr>
         <td><%= checkin.student.first_name %></td>
-        <td><%= checkin.section_id %></td>
+        <td><%= checkin.student.section_id %></td>
       </tr>
     <% end %>    
   </tbody>

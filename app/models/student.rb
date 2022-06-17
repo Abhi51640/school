@@ -1,17 +1,13 @@
 class Student < ApplicationRecord
   include Rails.application.routes.url_helpers
-
+  
   validates :first_name, :father_name, :phone_no, presence: true
   
   has_many :checkins
   belongs_to :section
   
   def generate_qr(host = "")
-    # write the logic for qr generation
-   # binding.pry
     qrcode = RQRCode::QRCode.new(host + store_new_checkin_path(student_id: self.id))
-
-      # NOTE: showing with default options specified explicitly
     png = qrcode.as_png(
       bit_depth: 1,
       border_modules: 4,
@@ -27,9 +23,5 @@ class Student < ApplicationRecord
     file_path = "#{Rails.root}/tmp/qrcode.png"
     IO.binwrite(file_path, png.to_s)
     return file_path
-  end
-  # binding.pry
-  def full_name
-      [first_name, last_name].compact.join(' ')
   end
 end

@@ -4,7 +4,11 @@ require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
+
 Bundler.require(*Rails.groups)
+if ['development', 'test'].include? ENV['RAILS_ENV']
+  Dotenv::Railtie.load
+end
 
 module School
   class Application < Rails::Application
@@ -12,7 +16,8 @@ module School
     config.load_defaults 7.0
 
     #ngrok
-    config.hosts << "9af4-2401-4900-1c18-2947-29f2-749b-f1a3-7fdf.in.ngrok.io"
+    # config.hosts << "5fd1-27-5-4-205.in.ngrok.io"
+    config.hosts << ENV['HOST']
     config.web_console.whiny_requests = false
 
     # Configuration for the application, engines, and railties goes here.

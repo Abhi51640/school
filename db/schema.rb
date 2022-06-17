@@ -82,8 +82,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_130825) do
     t.datetime "updated_at", null: false
     t.string "section"
     t.string "standard"
-    t.bigint "student_id"
-    t.index ["student_id"], name: "index_sections_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|

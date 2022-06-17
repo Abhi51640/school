@@ -13,7 +13,9 @@
       <tr>
         <td><%= section.standard%></td>   
         <td><%= section.section %></td>
-        <td><%= link_to "Show", checkins_path , method: :get %></td>
+        <td>
+          <%= link_to "Show Students", checkins_path(section_id: section.id) %>
+        </td>
         <br>
       </tr>
     <% end %>     

@@ -3,9 +3,9 @@ Rails.application.routes.draw do
            :sessions => "users/sessions",
            :registrations => "users/registrations"}
 
-  # get 'devise/sessions/new'
-  # root :to => "welcomes#index"
-  # resources :welcomes 
+  root :to => "welcomes#index"
+  
+  resources :welcomes 
   resources :students
   resources :sections
   resources :checkins
@@ -17,10 +17,6 @@ Rails.application.routes.draw do
     get :qr_code_download
   end
 
-  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  # Defines the root path route ("/")
 end

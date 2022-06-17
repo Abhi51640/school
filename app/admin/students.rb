@@ -1,16 +1,7 @@
 ActiveAdmin.register Student do
-
-     permit_params :first_name,:last_name,:father_name,:mother_name,:gender,:date_of_birth,:phone_no,:section_id
-
-    filter :first_name
-    filter :last_name
-    filter :father_name
-    filter :mother_name
-    filter :gender
-    filter :date_of_birth
-    filter :phone_no
-
-
+ 
+ permit_params :first_name,:last_name,:father_name,:mother_name,:gender,:date_of_birth,:phone_no,:section_id
+   
   index do
     selectable_column
     id_column
@@ -23,7 +14,15 @@ ActiveAdmin.register Student do
     column :phone_no
     actions
   end
-  
+
+  filter :first_name
+  filter :last_name
+  filter :father_name
+  filter :mother_name
+  filter :gender
+  filter :date_of_birth
+  filter :phone_no
+
   form do |f|
     f.inputs do
       f.input :first_name
@@ -44,7 +43,6 @@ ActiveAdmin.register Student do
   end
 
   action_item :generate_qr,  only: [ :show ] do
-     # binding.pry
     link_to "Generate QR", generate_qr_admin_student_path(id: resource.id), method: :put
   end
 end

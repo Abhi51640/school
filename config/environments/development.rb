@@ -59,7 +59,7 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-  config.action_mailer.default_url_options = { host: "https://9af4-2401-4900-1c18-2947-29f2-749b-f1a3-7fdf.in.ngrok.io" } 
+  config.action_mailer.default_url_options = { host: ENV['HOST'] } 
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

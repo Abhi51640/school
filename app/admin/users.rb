@@ -2,18 +2,7 @@ ActiveAdmin.register User do
 
 permit_params :email, :first_name, :last_name , :gender, :city, :date_of_birth, :password, :password_confirmation
 
-
-  filter :email
-  filter :first_name
-  filter :last_name
-  filter :gender
-  filter :city
-  filter :date_of_birth
-  filter :current_sign_in_at
-  filter :sign_in_count
-  filter :created_at
-
-   index do
+  index do
     selectable_column
     id_column
     column :email
@@ -27,6 +16,16 @@ permit_params :email, :first_name, :last_name , :gender, :city, :date_of_birth, 
     column :created_at
     actions
   end
+
+  filter :email
+  filter :first_name
+  filter :last_name
+  filter :gender
+  filter :city
+  filter :date_of_birth
+  filter :current_sign_in_at
+  filter :sign_in_count
+  filter :created_at
   
   form do |f|
     f.inputs do
@@ -41,5 +40,4 @@ permit_params :email, :first_name, :last_name , :gender, :city, :date_of_birth, 
     end
     f.actions
   end
-  
 end  

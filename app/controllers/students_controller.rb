@@ -5,7 +5,8 @@ class StudentsController < ApplicationController
   end
 
   def index
-   @students = Student.all.order(created_at: :desc)
+  # @sections = Sections.where(section_id: @section.id)
+    @students = Student.all.order(created_at: :desc)
   end
 
   # POST /resource

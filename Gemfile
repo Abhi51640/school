@@ -36,8 +36,12 @@ gem 'rqrcode'
 gem "carrierwave"
 gem "pry"
 gem "pundit"
+gem 'dotenv'
 # gem 'draper'
 # gem "will_paginate"
+group :development, :test do
+  gem 'dotenv-rails'
+end
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
