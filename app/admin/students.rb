@@ -32,7 +32,7 @@ ActiveAdmin.register Student do
       f.input :gender 
       f.input :date_of_birth
       f.input :phone_no
-      f.input :section_id, :as => :select, :collection => Section.pluck(:section, :id)
+      f.input :section_id, :as => :select, :collection => Section.pluck(:standard, :id)
     end
     f.actions
   end
