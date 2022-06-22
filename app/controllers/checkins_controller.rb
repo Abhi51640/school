@@ -3,18 +3,22 @@ class CheckinsController < ApplicationController
   before_action :change_re_direction, only: :new_checkin
   
   def index
-    @checkin = Checkin.where("created_at > ?" , Time.now.beginning_of_day) 
-    @checkins = Checkin.where("section_id = ?", params[:section_id])
+    @checkin = Checkin.where("created_at > ?" , Time.now.beginning_of_day)
+    @all_checkins = Checkin.all
+    # @checkins = Checkin.where("section_id = ?", params[:section_id])
+    # @checkins = Checkin.new_checkin
   end
   
   def new_checkin
     @student = Student.find(params[:student_id])
     @new_checkin = @student.checkins.create(section_id:@student.section_id)
-    redirect_to checkin_path(@new_checkin)
+    redirect_to checkins_path
   end
 
-  def show
+ def show
+  
   end
+ 
 
   def change_re_direction
     if params[:student_id].nil?

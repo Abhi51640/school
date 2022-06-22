@@ -248,6 +248,7 @@ GEM
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
       i18n
+    redis (4.6.0)
     regexp_parser (2.5.0)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -337,6 +338,7 @@ DEPENDENCIES
   puma (~> 5.0)
   pundit
   rails (~> 7.0.3)
+  redis (~> 4.0)
   rolify
   rqrcode
   selenium-webdriver
@@ -351,4 +353,4 @@ RUBY VERSION
    ruby 3.0.2p107
 
 BUNDLED WITH
-   2.3.11
+   2.3.12

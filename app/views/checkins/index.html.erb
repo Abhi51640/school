@@ -3,16 +3,23 @@
    <tr>
      <th>Student Name</th>
      <th>Standard</th>
+  
      <br />
     </tr>
   </thead>
   <tbody>
-    <% @checkins.each do |checkin| %>
+    <% @checkin.each do |checkin| %>
       <tr>
-        <td><%= checkin.student.first_name %></td>
-        <td><%= checkin.student.section_id %></td>
+        <td><%= checkin.name %></td>
+        <td><%= checkin.section_id %></td>
       </tr>
     <% end %>    
   </tbody>
 </table>
 
+
+
+<div class="container">
+    <%#= turbo_stream_from "checkins" %>
+    <%= render @all_checkins %>
+  </div>

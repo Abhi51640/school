@@ -4,6 +4,7 @@ class CreateCheckins < ActiveRecord::Migration[7.0]
 
       t.timestamps
       
+      t.string :name
       t.references :student
       t.references :section
     end
