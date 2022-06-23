@@ -4,9 +4,7 @@ class CheckinsController < ApplicationController
   
   def index
     @checkin = Checkin.where("created_at > ?" , Time.now.beginning_of_day)
-    @all_checkins = Checkin.all
-    # @checkins = Checkin.where("section_id = ?", params[:section_id])
-    # @checkins = Checkin.new_checkin
+    @all_checkins = Checkin.where("section_id = ?", params[:section_id])
   end
   
   def new_checkin

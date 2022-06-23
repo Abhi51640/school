@@ -71,7 +71,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_130825) do
   create_table "checkins", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
     t.bigint "student_id"
     t.bigint "section_id"
     t.index ["section_id"], name: "index_checkins_on_section_id"
