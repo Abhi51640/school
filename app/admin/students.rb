@@ -12,9 +12,10 @@ ActiveAdmin.register Student do
     column :gender
     column :date_of_birth
     column :phone_no
+    column :section
     actions
   end
-
+            
   filter :first_name
   filter :last_name
   filter :father_name

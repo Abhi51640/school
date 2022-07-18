@@ -5,18 +5,14 @@ class StudentsController < ApplicationController
   end
 
   def index
-  # @sections = Sections.where(section_id: @section.id)
-    @students = Student.all.order(created_at: :desc)
+   @students = Student.all.order(created_at: :desc)
   end
 
   # POST /resource
   def create
     @student = Student.new(student_params)
       if @student.save
-        # UserMailer.with(user: @user).welcome_email.deliver_later
-        # super
-        # UserMailer.welcome(resource).deliver unless resource.invalid?
-        redirect_to @student
+       redirect_to @student
       else
         render :new, status: :unprocesseable_entity
     end

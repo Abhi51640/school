@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get :qr_code_generator
     get :qr_code_download
   end
-
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 end

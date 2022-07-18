@@ -3,6 +3,10 @@ class WelcomesController < ApplicationController
  before_action :authenticate_user!
   
   def index
-   @sections = Section.all
+  
+  end
+
+  def show
+    @sections = Section.all
   end
 end

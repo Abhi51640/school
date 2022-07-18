@@ -13,7 +13,7 @@ class CheckinsController < ApplicationController
     redirect_to checkins_path
   end
 
- def show
+  def show
   
   end
  
