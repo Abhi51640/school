@@ -3,10 +3,14 @@ ActiveAdmin.register Section do
   permit_params :standard, :section
   
   index do
+    # binding.pry
     selectable_column
     id_column
     column :standard
-    column :section
+    column :section 
+    column :students do |section|
+      link_to 'Student Details', admin_students_path(section_id: section.id)
+    end 
     actions
   end
 

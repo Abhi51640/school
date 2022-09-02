@@ -22,6 +22,7 @@ ActiveAdmin.register Student do
   filter :gender
   filter :date_of_birth
   filter :phone_no
+  filter :section_id
 
   form do |f|
     f.inputs do
@@ -44,5 +45,17 @@ ActiveAdmin.register Student do
 
   action_item :generate_qr,  only: [ :show ] do
     link_to "Generate QR", generate_qr_admin_student_path(id: resource.id), method: :put
+  end
+
+  controller do
+    after_action :scoped_collection, only: %i(index)
+    
+    def scoped_collection
+      if params[:section_id].present?
+        Student.where(section_id: params[:section_id]) 
+      else  
+        Student.all
+      end
+    end  
   end
 end

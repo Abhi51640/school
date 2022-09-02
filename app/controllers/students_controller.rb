@@ -5,7 +5,6 @@ class StudentsController < ApplicationController
   end
 
   def index
-  # @sections = Sections.where(section_id: @section.id)
     @students = Student.all.order(created_at: :desc)
   end
 
@@ -51,6 +50,6 @@ class StudentsController < ApplicationController
 
   private 
    def student_params
-    params.require(:student).permit(:first_name, :last_name,:father_name, :mother_name,:date_of_birth, :gender,:section,:city,:phone_no)
+    params.require(:student).permit(:first_name, :last_name, :father_name, :mother_name, :date_of_birth, :gender, :section, :city, :phone_no)
   end
 end

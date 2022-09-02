@@ -15,9 +15,9 @@ module School
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
-    #ngrok
-    # config.hosts << "5fd1-27-5-4-205.in.ngrok.io"
+     #ngrok
     config.hosts << ENV['HOST']
+
     config.web_console.whiny_requests = false
 
     # Configuration for the application, engines, and railties goes here.
