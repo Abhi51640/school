@@ -1,0 +1,21 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Standard</th>
+      <th>Section</th>
+      <th>Show</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sections.each do |section| %>
+      <tr>
+        <td><%= section.standard%></td>   
+        <td><%= section.section %></td>
+        <td>
+          <%= link_to "Show Students", checkins_path(section_id: section.id) %>
+        </td>
+        <br />
+      </tr>
+    <% end %>     
+  </tbody>
+</table>
