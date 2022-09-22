@@ -5,11 +5,7 @@ class StudentsController < ApplicationController
   end
 
   def index
-<<<<<<< HEAD
     @students = Student.all.order(created_at: :desc)
-=======
-   @students = Student.all.order(created_at: :desc)
->>>>>>> 3feb3902f941ca334360607ce302abc000b99c2a
   end
 
   # POST /resource

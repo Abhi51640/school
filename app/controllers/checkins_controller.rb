@@ -17,7 +17,6 @@ class CheckinsController < ApplicationController
   
   end
  
-
   def change_re_direction
     if params[:student_id].nil?
       redirect_to checkin_path(params[:id]) and return
