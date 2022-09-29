@@ -1,4 +1,4 @@
-class StudentsController < ApplicationController
+app/controllers/checkins_controller.rbapp/controllers/checkins_controller.rbclass StudentsController < ApplicationController
 
   def new
     @student = Student.new

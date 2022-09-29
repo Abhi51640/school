@@ -11,12 +11,6 @@ ActiveAdmin.register Section do
     column :students do |section|
       link_to 'Student Details', admin_students_path(section_id: section.id)
     end 
-
-    column :section
-    column :students do |section|
-      link_to 'Student Details', admin_students_path(section_id: section.id)
-    end
-
     actions
   end
 
