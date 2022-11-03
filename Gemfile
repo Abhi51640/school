@@ -41,6 +41,7 @@ gem 'dotenv'
 # gem "will_paginate"
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'rubocop'
 end
 
 # Use Redis adapter to run Action Cable in production
