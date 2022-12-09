@@ -1,8 +1,14 @@
 <nav class="navbar navbar-dark bg-custom-2">
   <div class="container-fluid">
     <a class="navbar-brand" href="#a">School</a>
-    <% if current_user %>
-      <%= button_to "log out", destroy_user_session_path, method: :delete , class:'btn btn-outline btn-secondary' %>
+    <div class="logo"> 
+      <%= image_tag asset_url('logo.png') %>
+    </div>
+<!-- Login and Logout button -->
+    <% if user_signed_in? %>
+      <%= button_to 'Log Out', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
+    <% elsif !user_signed_in? %>
+      <%= link_to "Log In", new_user_session_path, method: :new, class: "btn btn-success" %>
     <% end %>
   </div>
 </nav>
