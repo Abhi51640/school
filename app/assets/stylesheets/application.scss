@@ -122,17 +122,32 @@ width: 100%;
 text-align: center;
 text-decoration: none;
 }
+
 .navbar-dark .navbar-brand {
 color: #000;
 font-size: 18px;
+display: -webkit-box;
 }
+
 .logo{
-margin-left: 4rem;
+margin-left: 1rem;
 margin-right: 95em;
 margin-bottom: 2em;
 cursor: pointer;
 outline: none;
-width: 80px; 
+width: 70px; 
 height: 90px; 
 display: block; 
+}
+.navbar .nav{
+  text-align: center;
+}
+.nav-item ul li{
+  list-style: none;
+}
+.nav-item ul li a{
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  box-sizing: border-box;
 }
