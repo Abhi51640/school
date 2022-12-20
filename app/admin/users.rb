@@ -40,4 +40,16 @@ permit_params :email, :first_name, :last_name , :gender, :city, :date_of_birth, 
     end
     f.actions
   end
+  
+  controller do
+    
+    def create
+      @user = User.new(user_params)
+      if @user.save
+        redirect_to @user
+      else
+        render :new, status: :unprocesseable_entity
+      end
+    end
+  end
 end  
