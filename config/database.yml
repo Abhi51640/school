@@ -6,13 +6,17 @@
 #
 default: &default
   adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+  username: postgres
+  password: password
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+  database: mydb_development
 
 development:
   <<: *default
-  username: postgres 
-  password: 
   database: db_development
 
 # Warning: The database defined as "test" will be erased and
